@@ -993,6 +993,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "gethostname"
+version = "0.4.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0176e0459c2e4a1fe232f984bca6890e681076abb9934f6cea7c326f3fc47818"
+dependencies = [
+ "libc",
+ "windows-targets 0.48.5",
+]
+
+[[package]]
 name = "getrandom"
 version = "0.1.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1840,6 +1850,17 @@ name = "option-ext"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "04744f49eae99ab78e0d5c0b603ab218f515ea8cfe5a456d7629ad883a3b6e7d"
+
+[[package]]
+name = "os_info"
+version = "3.8.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ae99c7fa6dd38c7cafe1ec085e804f8f555a2f8659b0dbe03f1f9963a9b51092"
+dependencies = [
+ "log",
+ "serde",
+ "windows-sys 0.52.0",
+]
 
 [[package]]
 name = "overload"
@@ -2759,7 +2780,7 @@ dependencies = [
 [[package]]
 name = "specta"
 version = "2.0.0-rc.12"
-source = "git+https://github.com/jsimonrichard/specta#a8d5af2ea678a217943d625c06d6c27a48a1ab7b"
+source = "git+https://github.com/jsimonrichard/specta#c177c71ee386abac87d6b0784ca1a441413f0c28"
 dependencies = [
  "once_cell",
  "paste",
@@ -2771,7 +2792,7 @@ dependencies = [
 [[package]]
 name = "specta-macros"
 version = "2.0.0-rc.10"
-source = "git+https://github.com/jsimonrichard/specta#a8d5af2ea678a217943d625c06d6c27a48a1ab7b"
+source = "git+https://github.com/jsimonrichard/specta#c177c71ee386abac87d6b0784ca1a441413f0c28"
 dependencies = [
  "Inflector",
  "proc-macro2",
@@ -2864,6 +2885,15 @@ name = "sync_wrapper"
 version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "2047c6ded9c721764247e62cd3b03c09ffc529b2ba5b10ec482ae507a4a70160"
+
+[[package]]
+name = "sys-locale"
+version = "0.3.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e801cf239ecd6ccd71f03d270d67dd53d13e90aab208bf4b8fe4ad957ea949b0"
+dependencies = [
+ "libc",
+]
 
 [[package]]
 name = "system-deps"
@@ -2967,11 +2997,11 @@ dependencies = [
  "specta",
  "state",
  "swift-rs",
- "tauri-build",
+ "tauri-build 2.0.0-beta.17 (git+https://github.com/jsimonrichard/tauri?branch=jsimonrichard-dev-specta)",
  "tauri-macros",
  "tauri-runtime",
  "tauri-runtime-wry",
- "tauri-utils",
+ "tauri-utils 2.0.0-beta.17 (git+https://github.com/jsimonrichard/tauri?branch=jsimonrichard-dev-specta)",
  "thiserror",
  "tokio",
  "tray-icon",
@@ -2981,6 +3011,28 @@ dependencies = [
  "webview2-com",
  "window-vibrancy",
  "windows 0.56.0",
+]
+
+[[package]]
+name = "tauri-build"
+version = "2.0.0-beta.17"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "82b964bb6d03d97e24e12f896aab463b02a3c2ff76a60f728cc37b5548eb470e"
+dependencies = [
+ "anyhow",
+ "cargo_toml",
+ "dirs-next",
+ "glob",
+ "heck 0.5.0",
+ "json-patch",
+ "schemars",
+ "semver",
+ "serde",
+ "serde_json",
+ "tauri-utils 2.0.0-beta.17 (registry+https://github.com/rust-lang/crates.io-index)",
+ "tauri-winres",
+ "toml 0.8.2",
+ "walkdir",
 ]
 
 [[package]]
@@ -2998,7 +3050,7 @@ dependencies = [
  "semver",
  "serde",
  "serde_json",
- "tauri-utils",
+ "tauri-utils 2.0.0-beta.17 (git+https://github.com/jsimonrichard/tauri?branch=jsimonrichard-dev-specta)",
  "tauri-winres",
  "toml 0.8.2",
  "walkdir",
@@ -3022,7 +3074,7 @@ dependencies = [
  "serde_json",
  "sha2",
  "syn 2.0.60",
- "tauri-utils",
+ "tauri-utils 2.0.0-beta.17 (git+https://github.com/jsimonrichard/tauri?branch=jsimonrichard-dev-specta)",
  "thiserror",
  "time",
  "url",
@@ -3040,7 +3092,52 @@ dependencies = [
  "quote",
  "syn 2.0.60",
  "tauri-codegen",
- "tauri-utils",
+ "tauri-utils 2.0.0-beta.17 (git+https://github.com/jsimonrichard/tauri?branch=jsimonrichard-dev-specta)",
+]
+
+[[package]]
+name = "tauri-plugin"
+version = "2.0.0-beta.17"
+source = "git+https://github.com/jsimonrichard/tauri?branch=jsimonrichard-dev-specta#e8fb76f3138b1678b0d68f3eeeddbc0ca700b15a"
+dependencies = [
+ "anyhow",
+ "glob",
+ "plist",
+ "schemars",
+ "serde",
+ "serde_json",
+ "tauri-utils 2.0.0-beta.17 (git+https://github.com/jsimonrichard/tauri?branch=jsimonrichard-dev-specta)",
+ "toml 0.8.2",
+ "walkdir",
+]
+
+[[package]]
+name = "tauri-plugin-os"
+version = "2.0.0-beta.6"
+source = "git+https://github.com/jsimonrichard/tauri-plugins-workspace#d14726b87dc2210b0ab6ce243c66e16b71348621"
+dependencies = [
+ "gethostname",
+ "log",
+ "os_info",
+ "serde",
+ "serde_json",
+ "serialize-to-javascript",
+ "sys-locale",
+ "tauri",
+ "tauri-plugin",
+ "thiserror",
+]
+
+[[package]]
+name = "tauri-plugin-specta-example"
+version = "0.0.0"
+dependencies = [
+ "rand 0.8.5",
+ "serde",
+ "specta",
+ "tauri",
+ "tauri-plugin",
+ "tauri-specta",
 ]
 
 [[package]]
@@ -3055,7 +3152,7 @@ dependencies = [
  "raw-window-handle 0.6.1",
  "serde",
  "serde_json",
- "tauri-utils",
+ "tauri-utils 2.0.0-beta.17 (git+https://github.com/jsimonrichard/tauri?branch=jsimonrichard-dev-specta)",
  "thiserror",
  "url",
  "windows 0.56.0",
@@ -3076,7 +3173,7 @@ dependencies = [
  "softbuffer",
  "tao",
  "tauri-runtime",
- "tauri-utils",
+ "tauri-utils 2.0.0-beta.17 (git+https://github.com/jsimonrichard/tauri?branch=jsimonrichard-dev-specta)",
  "url",
  "webkit2gtk",
  "webview2-com",
@@ -3099,6 +3196,31 @@ dependencies = [
 ]
 
 [[package]]
+name = "tauri-specta-example-app"
+version = "0.0.0"
+dependencies = [
+ "serde",
+ "serde_json",
+ "specta",
+ "tauri",
+ "tauri-build 2.0.0-beta.17 (registry+https://github.com/rust-lang/crates.io-index)",
+ "tauri-plugin-os",
+ "tauri-specta",
+ "thiserror",
+]
+
+[[package]]
+name = "tauri-specta-example-custom-plugin-app"
+version = "0.0.0"
+dependencies = [
+ "serde",
+ "serde_json",
+ "tauri",
+ "tauri-build 2.0.0-beta.17 (registry+https://github.com/rust-lang/crates.io-index)",
+ "tauri-plugin-specta-example",
+]
+
+[[package]]
 name = "tauri-specta-macros"
 version = "2.0.0-rc.5"
 dependencies = [
@@ -3106,6 +3228,39 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 2.0.60",
+]
+
+[[package]]
+name = "tauri-utils"
+version = "2.0.0-beta.17"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4f24a9c20d676a3f025331cc1c3841256ba88c9f25fb7fae709d2b3089c50d90"
+dependencies = [
+ "cargo_metadata",
+ "ctor",
+ "dunce",
+ "glob",
+ "html5ever",
+ "infer",
+ "json-patch",
+ "kuchikiki",
+ "log",
+ "memchr",
+ "phf 0.11.2",
+ "proc-macro2",
+ "quote",
+ "regex",
+ "schemars",
+ "semver",
+ "serde",
+ "serde_json",
+ "serde_with",
+ "swift-rs",
+ "thiserror",
+ "toml 0.8.2",
+ "url",
+ "urlpattern",
+ "walkdir",
 ]
 
 [[package]]

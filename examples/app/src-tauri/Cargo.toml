@@ -21,7 +21,7 @@ serde = { version = "1.0", features = ["derive"] }
 tauri = { git = "https://github.com/jsimonrichard/tauri", branch = "jsimonrichard-dev-specta", features = [
 ] }
 tauri-specta = { path = "../../../", features = ["typescript", "javascript"] }
-tauri-plugin-os = "2.0.0-beta.3"
+tauri-plugin-os = { git = "https://github.com/jsimonrichard/tauri-plugins-workspace" }
 thiserror = "1.0.60"
 
 [features]
